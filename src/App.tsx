@@ -1,8 +1,18 @@
 import { useMultiStepForm } from "./useMultiStepForm";
 
+import EducationForm from "./components/EducationForm";
+import JobFrom from "./components/JobFrom";
+import UserInfoFrom from "./components/UserInfoFrom";
+import CertificateForm from "./components/CertificateForm";
+
 function App() {
-  const { steps, currentStepIndex, isFirstStep, step, back, next,isLastStep } =
-    useMultiStepForm([<div>one</div>, <div>two</div>, <div>tree</div>]);
+  const { steps, currentStepIndex, isFirstStep, step, back, next, isLastStep } =
+    useMultiStepForm([
+      <UserInfoFrom />,
+      <EducationForm />,
+      <JobFrom />,
+      <CertificateForm />,
+    ]);
   return (
     <div
       style={{
