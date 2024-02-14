@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useMultiStepForm } from "./useMultiStepForm";
 
 import EducationForm from "./components/EducationForm";
