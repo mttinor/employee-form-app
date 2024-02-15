@@ -5,17 +5,26 @@ import type { DateObject, Value } from "react-multi-date-picker";
 type UserFormProps = {
   title?: string;
   value?: Value;
+  minDate?: Value;
+  maxDate?: Value;
   onChangeValue: (e: DateObject | DateObject[] | null) => void;
 };
 export default function Calender({
   title,
   value,
+  minDate,
+  maxDate,
   onChangeValue,
 }: UserFormProps) {
   return (
     <>
-      <label className="mb-2" htmlFor="">{title}:</label><br />
+      <label className="mb-2" htmlFor="">
+        {title}:
+      </label>
+      <br />
       <DatePicker
+        minDate={minDate}
+        maxDate={maxDate}
         value={value}
         onChange={(e: DateObject | DateObject[] | null) => onChangeValue(e)}
         calendar={persian}

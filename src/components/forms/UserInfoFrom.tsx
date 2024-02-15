@@ -9,9 +9,10 @@ import { useState } from "react";
 type UserFormData = {
   maritalStatus: string;
   firstName: string;
+  lastName: string;
   nationalCode: string;
   placeBirth: string;
-  dateBirth: DateObject | DateObject[] | null;
+  dateBirth: string;
   fatherName: string;
 };
 
@@ -22,6 +23,7 @@ type UserFormProps = UserFormData & {
 export default function UserInfoFrom({
   maritalStatus,
   firstName,
+  lastName,
   nationalCode,
   placeBirth,
   dateBirth,
@@ -45,11 +47,17 @@ export default function UserInfoFrom({
   return (
     <FormWapper title="اطلاعات فردی">
       <Col xs={12} md={6}>
-        {" "}
         <Input
-          title="نام خانوادگی "
+          title="نام"
           value={firstName}
           onChangeValue={(e) => updateFields({ firstName: e.target.value })}
+        />
+      </Col>
+      <Col xs={12} md={6}>
+        <Input
+          title="نام خانوادگی "
+          value={lastName}
+          onChangeValue={(e) => updateFields({ lastName: e.target.value })}
         />
       </Col>
       <Col xs={12} md={6}>
@@ -63,7 +71,12 @@ export default function UserInfoFrom({
         <Calender
           title="تاریخ تولد "
           value={dateBirth}
-          onChangeValue={(e) => updateFields({ dateBirth: e })}
+          maxDate={new Date()}
+          onChangeValue={(e) =>
+            updateFields({
+              dateBirth: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
+            })
+          }
         />
       </Col>
       <Col xs={12} md={6}>

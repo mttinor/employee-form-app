@@ -58,7 +58,7 @@ export default function EducationForm({
       </Col>
       <Col xs={12} md={6}>
         <Input
-          title="دانشگاه / موسسه "
+          title="معدل"
           value={gradePoint}
           onChangeValue={(e) => updateFields({ gradePoint: e.target.value })}
         />

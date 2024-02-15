@@ -3,9 +3,12 @@ import FormWapper from "./FormWapper";
 import { useState } from "react";
 import Input from "./../base/Input";
 import SingleSelect from "./../base/SingleSelect";
+import Calender from "../base/Calender";
 
 type JobFormData = {
   salary: string;
+  startPosition: string;
+  endPosition: string;
   companyName: string;
   position: string;
   workTime: string;
@@ -20,6 +23,8 @@ export default function JobFrom({
   satisfactionCompany,
   salary,
   companyName,
+  startPosition,
+  endPosition,
   position,
   workTime,
   updateFields,
@@ -31,6 +36,7 @@ export default function JobFrom({
     { value: "4", name: "بین 25 تا 30 میلیون تومان " },
     { value: "5", name: "بین 30 تا 35 میلیون تومان " },
   ]);
+
   return (
     <FormWapper title="سوابق شغلی">
       <Col xs={12} md={6}>
@@ -48,10 +54,25 @@ export default function JobFrom({
         />
       </Col>
       <Col xs={12} md={6}>
-        <Input
-          title="مدت همکاری"
-          value={workTime}
-          onChangeValue={(e) => updateFields({ workTime: e.target.value })}
+        <Calender
+          maxDate={new Date()}
+          title="از تاریخ"
+          onChangeValue={(e) =>
+            updateFields({
+              startPosition: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
+            })
+          }
+        />
+      </Col>
+      <Col xs={12} md={6}>
+        <Calender
+          maxDate={new Date()}
+          title="تا تاریخ"
+          onChangeValue={(e) =>
+            updateFields({
+              endPosition: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
+            })
+          }
         />
       </Col>
       <Col xs={12} md={6}>
