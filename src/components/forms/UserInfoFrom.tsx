@@ -14,6 +14,8 @@ type UserFormData = {
   placeBirth: string;
   dateBirth: string;
   fatherName: string;
+  gender: string;
+  address: string;
 };
 
 type UserFormProps = UserFormData & {
@@ -21,6 +23,8 @@ type UserFormProps = UserFormData & {
 };
 
 export default function UserInfoFrom({
+  address,
+  gender,
   maritalStatus,
   firstName,
   lastName,
@@ -30,7 +34,7 @@ export default function UserInfoFrom({
   fatherName,
   updateFields,
 }: UserFormProps) {
-  const [options, setOptions] = useState([
+  const [maritalStatusOptions, setMaritalStatusOptions] = useState([
     {
       name: "متاهل",
       value: "1",
@@ -44,6 +48,22 @@ export default function UserInfoFrom({
       value: "3",
     },
   ]);
+  const [genderOptions, setGenderOptions] = useState([
+    {
+      name: "مرد",
+      value: "1",
+    },
+    {
+      name: "زن",
+      value: "2",
+    },
+    {
+      name: "سایر",
+      value: "3",
+    },
+  ]);
+
+  [{ name: "مذکز", value: "1" }];
   return (
     <FormWapper title="اطلاعات فردی">
       <Col xs={12} md={6}>
@@ -96,9 +116,24 @@ export default function UserInfoFrom({
       <Col xs={12} md={6}>
         <SingleSelect
           value={maritalStatus}
-          options={options}
+          options={maritalStatusOptions}
           onChangeValue={(e) => updateFields({ maritalStatus: e.target.value })}
           title="وضعیت تاهل"
+        />
+      </Col>
+      <Col xs={12} md={6}>
+        <SingleSelect
+          value={gender}
+          options={genderOptions}
+          onChangeValue={(e) => updateFields({ gender: e.target.value })}
+          title="جنسیت"
+        />
+      </Col>
+      <Col xs={12} md={6}>
+        <Input
+          value={address}
+          onChangeValue={(e) => updateFields({ address: e.target.value })}
+          title="آدرس"
         />
       </Col>
     </FormWapper>

@@ -1,8 +1,30 @@
 import { useState } from "react";
 import { Card, Container, Table } from "react-bootstrap";
-
+type FormData = {
+  firstName: string;
+  lastName: string;
+  nationalCode: string;
+  placeBirth: string;
+  dateBirth: string;
+  fatherName: string;
+  maritalStatus: string;
+  salary: string;
+  companyName: string;
+  position: string;
+  workTime: string;
+  satisfactionCompany: string;
+  licence: object[];
+  grade: string;
+  fieldOfStudy: string;
+  academicOrientation: string;
+  universityName: string;
+  gradePoint: string;
+  timeLicence: string;
+  startPosition: string;
+  endPosition: string;
+};
 export default function Admin() {
-  const INIT_DATA = localStorage.getItem("userData")
+  const INIT_DATA: FormData[] = localStorage.getItem("userData")
     ? JSON.parse(localStorage.getItem("userData"))
     : [];
   const [data, setData] = useState([

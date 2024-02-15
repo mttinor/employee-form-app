@@ -5,8 +5,8 @@ import type { DateObject, Value } from "react-multi-date-picker";
 type UserFormProps = {
   title?: string;
   value?: Value;
-  minDate?: Value;
-  maxDate?: Value;
+  minDate?: Date;
+  maxDate?: Date;
   onChangeValue: (e: DateObject | DateObject[] | null) => void;
 };
 export default function Calender({

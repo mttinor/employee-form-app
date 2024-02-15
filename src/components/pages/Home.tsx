@@ -29,9 +29,13 @@ type FormData = {
   timeLicence: string;
   startPosition: string;
   endPosition: string;
+  gender: string;
+  address: string;
 };
 
 const INITIAL_DATA: FormData = {
+  gender: "",
+  address: "",
   endPosition: "",
   startPosition: "",
   firstName: "",
@@ -90,7 +94,11 @@ function Home() {
     if (!isLastStep) return next();
     setItems((prev) => [...prev, data]);
     localStorage.setItem("userData", JSON.stringify(items));
-    setFinished("ثبت نام شما با موفقیت اتجام شد ");
+    setFinished(
+      ` ثبت نام شما با موفقیت اتجام شد کد پیگیری شما ${Math.floor(
+        Math.random() * 25659
+      )}`
+    );
   }
 
   function refresh() {
