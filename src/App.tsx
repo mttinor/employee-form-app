@@ -1,10 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useMultiStepForm } from "./useMultiStepForm";
 import { Button } from "react-bootstrap";
-import EducationForm from "./components/EducationForm";
-import JobFrom from "./components/JobFrom";
-import UserInfoFrom from "./components/UserInfoFrom";
-import CertificateForm from "./components/CertificateForm";
+import EducationForm from "./components/forms/EducationForm";
+import JobFrom from "./components/forms/JobFrom";
+import UserInfoFrom from "./components/forms/UserInfoFrom";
+import CertificateForm from "./components/forms/CertificateForm";
 import { FormEvent, useState } from "react";
 import { DateObject } from "react-multi-date-picker";
 
@@ -21,6 +21,12 @@ type FormData = {
   workTime: string;
   satisfactionCompany: string;
   licence: object[];
+  grade: string;
+  fieldOfStudy: string;
+  academicOrientation: string;
+  universityName: string;
+  gradePoint: string;
+  timeLicence: string;
 };
 
 const INITIAL_DATA: FormData = {
@@ -36,6 +42,12 @@ const INITIAL_DATA: FormData = {
   workTime: "",
   satisfactionCompany: "",
   licence: [],
+  grade: "",
+  fieldOfStudy: "",
+  academicOrientation: "",
+  universityName: "",
+  gradePoint: "",
+  timeLicence: "",
 };
 
 function App() {

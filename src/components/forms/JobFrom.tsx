@@ -1,10 +1,8 @@
 import { Col, Form } from "react-bootstrap";
 import FormWapper from "./FormWapper";
-
 import { useState } from "react";
-
-import Input from "./base/Input";
-import SingleSelect from "./base/SingleSelect";
+import Input from "./../base/Input";
+import SingleSelect from "./../base/SingleSelect";
 
 type JobFormData = {
   salary: string;
@@ -35,7 +33,7 @@ export default function JobFrom({
   ]);
   return (
     <FormWapper title="سوابق شغلی">
-      <Col xs={12} md={6} >
+      <Col xs={12} md={6}>
         <Input
           title="نام سازمان "
           value={companyName}

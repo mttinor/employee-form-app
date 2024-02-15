@@ -1,8 +1,8 @@
 import { Col } from "react-bootstrap";
 import FormWapper from "./FormWapper";
-import Input from "./base/Input";
-import SingleSelect from "./base/SingleSelect";
-import Calender from "./base/Calender";
+import Input from "./../base/Input";
+import SingleSelect from "./../base/SingleSelect";
+import Calender from "./../base/Calender";
 import { DateObject } from "react-multi-date-picker";
 import { useState } from "react";
 
