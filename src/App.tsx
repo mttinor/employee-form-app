@@ -1,19 +1,70 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useMultiStepForm } from "./useMultiStepForm";
-
+import { Button } from "react-bootstrap";
 import EducationForm from "./components/EducationForm";
 import JobFrom from "./components/JobFrom";
 import UserInfoFrom from "./components/UserInfoFrom";
 import CertificateForm from "./components/CertificateForm";
+import { FormEvent, useState } from "react";
+import { DateObject } from "react-multi-date-picker";
+
+type FormData = {
+  firstName: string;
+  nationalCode: string;
+  placeBirth: string;
+  dateBirth: DateObject | DateObject[] | null;
+  fatherName: string;
+  maritalStatus: string;
+  salary: string;
+  companyName: string;
+  position: string;
+  workTime: string;
+  satisfactionCompany: string;
+  licence: object[];
+};
+
+const INITIAL_DATA: FormData = {
+  firstName: "",
+  maritalStatus: "",
+  nationalCode: "",
+  placeBirth: "",
+  dateBirth: null,
+  fatherName: "",
+  salary: "",
+  companyName: "",
+  position: "",
+  workTime: "",
+  satisfactionCompany: "",
+  licence: [],
+};
 
 function App() {
+  const [data, setData] = useState(INITIAL_DATA);
   const { steps, currentStepIndex, isFirstStep, step, back, next, isLastStep } =
     useMultiStepForm([
-      <UserInfoFrom />,
-      <EducationForm />,
-      <JobFrom />,
-      <CertificateForm />,
+      <UserInfoFrom {...data} updateFields={updateFields} />,
+      <JobFrom {...data} updateFields={updateFields} />,
+      <EducationForm {...data} updateFields={updateFields} />,
+      <CertificateForm {...data} updateFields={updateFields} />,
     ]);
+
+  function updateFields(fields: Partial<FormData>) {
+    setData((prev) => {
+      return {
+        ...prev,
+        ...fields,
+      };
+    });
+    console.log(data);
+  }
+
+  function onSubmit(e: FormEvent) {
+    e.preventDefault();
+    console.log(data);
+    if (!isLastStep) return next();
+    alert("finish");
+  }
+
   return (
     <div
       style={{
@@ -24,9 +75,10 @@ function App() {
         margin: "1rem",
         borderRadius: "0.5rem",
         fontFamily: "Areal",
+        // maxWidth: "max-content",
       }}
     >
-      <form>
+      <form onSubmit={onSubmit}>
         <div
           style={{
             position: "absolute",
@@ -46,13 +98,13 @@ function App() {
           }}
         >
           {!isFirstStep && (
-            <button type="button" onClick={back}>
-              Back
-            </button>
+            <Button variant="danger" type="button" onClick={back}>
+              مرحله قبلی
+            </Button>
           )}
-          <button type="button" onClick={next}>
-            {isLastStep ? "Finish" : "Next"}
-          </button>
+          <Button variant="success" type="submit">
+            {isLastStep ? "پایان ثبت نام" : "مرحله بعدی"}
+          </Button>
         </div>
       </form>
     </div>

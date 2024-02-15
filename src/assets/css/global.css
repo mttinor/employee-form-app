@@ -1,0 +1,16 @@
+body {
+    direction: rtl;
+}
+
+.rmdp-container {
+    width: 100% !important;
+}
+
+.rmdp-input {
+    border: 1px solid #dee2e6 !important;
+    width: 100% !important;
+    height: 38px !important;
+}
+.searchBox {
+    width: 100%;
+}
