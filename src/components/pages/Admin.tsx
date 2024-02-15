@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, Container, Table } from "react-bootstrap";
 type FormData = {
   firstName: string;
@@ -24,10 +24,7 @@ type FormData = {
   endPosition: string;
 };
 export default function Admin() {
-  const INIT_DATA: FormData[] = localStorage.getItem("userData")
-    ? JSON.parse(localStorage.getItem("userData"))
-    : [];
-  const [data, setData] = useState([
+  const [data, setData] = useState<FormData[]>([
     {
       endPosition: "1402/11/25",
       startPosition: "1402/11/1",
@@ -60,8 +57,15 @@ export default function Admin() {
       gradePoint: "20",
       timeLicence: "2",
     },
-    ...INIT_DATA,
   ]);
+
+  useEffect(() => {
+    const loc_storage: string | null = localStorage.getItem("userData");
+    const INIT_DATA: FormData[] = localStorage.getItem("userData")
+      ? JSON.parse(`${loc_storage}`)
+      : [];
+    setData((prev) => [...prev, ...INIT_DATA]);
+  }, []);
   return (
     <Container className="mt-4">
       <Card>

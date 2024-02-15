@@ -11,7 +11,6 @@ type JobFormData = {
   endPosition: string;
   companyName: string;
   position: string;
-  workTime: string;
   satisfactionCompany: string;
 };
 
@@ -20,16 +19,14 @@ type JobFormProps = JobFormData & {
 };
 
 export default function JobFrom({
-  satisfactionCompany,
   salary,
   companyName,
   startPosition,
   endPosition,
   position,
-  workTime,
   updateFields,
 }: JobFormProps) {
-  const [options, setOptions] = useState([
+  const [options] = useState([
     { value: "1", name: "بین 10 تا 15 میلیون تومان " },
     { value: "2", name: "بین 15 تا 20 میلیون تومان " },
     { value: "3", name: "بین 20 تا 25 میلیون تومان " },
@@ -55,9 +52,10 @@ export default function JobFrom({
       </Col>
       <Col xs={12} md={6}>
         <Calender
+          value={startPosition}
           maxDate={new Date()}
           title="از تاریخ"
-          onChangeValue={(e) =>
+          onChangeValue={(e: any) =>
             updateFields({
               startPosition: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
             })
@@ -66,9 +64,10 @@ export default function JobFrom({
       </Col>
       <Col xs={12} md={6}>
         <Calender
+          value={endPosition}
           maxDate={new Date()}
           title="تا تاریخ"
-          onChangeValue={(e) =>
+          onChangeValue={(e: any) =>
             updateFields({
               endPosition: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
             })

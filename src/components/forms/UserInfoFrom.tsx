@@ -3,7 +3,6 @@ import FormWapper from "./FormWapper";
 import Input from "./../base/Input";
 import SingleSelect from "./../base/SingleSelect";
 import Calender from "./../base/Calender";
-import { DateObject } from "react-multi-date-picker";
 import { useState } from "react";
 
 type UserFormData = {
@@ -34,7 +33,7 @@ export default function UserInfoFrom({
   fatherName,
   updateFields,
 }: UserFormProps) {
-  const [maritalStatusOptions, setMaritalStatusOptions] = useState([
+  const [maritalStatusOptions] = useState([
     {
       name: "متاهل",
       value: "1",
@@ -48,7 +47,7 @@ export default function UserInfoFrom({
       value: "3",
     },
   ]);
-  const [genderOptions, setGenderOptions] = useState([
+  const [genderOptions] = useState([
     {
       name: "مرد",
       value: "1",
@@ -92,7 +91,7 @@ export default function UserInfoFrom({
           title="تاریخ تولد "
           value={dateBirth}
           maxDate={new Date()}
-          onChangeValue={(e) =>
+          onChangeValue={(e: any) =>
             updateFields({
               dateBirth: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
             })

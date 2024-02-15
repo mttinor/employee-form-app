@@ -5,7 +5,7 @@ import JobFrom from "./../forms/JobFrom";
 import UserInfoFrom from "./../forms/UserInfoFrom";
 import CertificateForm from "./../forms/CertificateForm";
 import { FormEvent, useState } from "react";
-import { DateObject } from "react-multi-date-picker";
+
 
 type FormData = {
   firstName: string;
@@ -18,7 +18,7 @@ type FormData = {
   salary: string;
   companyName: string;
   position: string;
-  workTime: string;
+  
   satisfactionCompany: string;
   licence: object[];
   grade: string;
@@ -48,7 +48,7 @@ const INITIAL_DATA: FormData = {
   salary: "",
   companyName: "",
   position: "",
-  workTime: "",
+
   satisfactionCompany: "",
   licence: [],
   grade: "",
@@ -86,7 +86,6 @@ function Home() {
         ...fields,
       };
     });
-    console.log(data);
   }
 
   function onSubmit(e: FormEvent) {
