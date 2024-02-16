@@ -1,7 +1,4 @@
 const Notification = () => {
-  return(
-    <>
-    Notif</>
-  )
-}
+  return <>Notif</>;
+};
 export default Notification;

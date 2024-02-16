@@ -1,5 +1,5 @@
 import { useMultiStepForm } from "../CustomHooks/useMultiStepForm";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import EducationForm from "./../forms/EducationForm";
 import JobFrom from "./../forms/JobFrom";
 import UserInfoFrom from "./../forms/UserInfoFrom";
@@ -59,6 +59,7 @@ const INITIAL_DATA: FormData = {
 };
 
 function Home() {
+  const [validated, setValidated] = useState(false);
   const [data, setData] = useState(INITIAL_DATA);
   const [items, setItems] = useState<FormData[]>([]);
   const [textFinish, setFinished] = useState<String>("");
@@ -87,14 +88,27 @@ function Home() {
     });
   }
 
-  function onSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (!isLastStep) return next();
+  function onSubmit(event: any) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      console.log(1);
+
+      event.stopPropagation();
+      setValidated(true);
+      return;
+    }
+
+    // e.preventDefault();
+    if (!isLastStep) {
+      next();
+      setValidated(false);
+      return;
+    }
 
     setItems((prev) => [...prev, { ...data }]);
-    console.log(items);
-    console.log(data);
-    localStorage.setItem("userData", JSON.stringify(items));
+
+    localStorage.setItem("userData", JSON.stringify([...items, { ...data }]));
     setFinished(
       ` ثبت نام شما با موفقیت اتجام شد کد پیگیری شما ${Math.floor(
         Math.random() * 25659
@@ -135,7 +149,8 @@ function Home() {
           // maxWidth: "max-content",
         }}
       >
-        <form onSubmit={onSubmit}>
+        {/* <form onSubmit={onSubmit}> */}
+        <Form noValidate validated={validated} onSubmit={onSubmit}>
           <div
             style={{
               position: "absolute",
@@ -179,7 +194,8 @@ function Home() {
               </Button>
             )}
           </div>
-        </form>
+          {/* </form> */}
+        </Form>
       </div>
     </>
   );

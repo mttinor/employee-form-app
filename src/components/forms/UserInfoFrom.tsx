@@ -1,4 +1,4 @@
-import { Col } from "react-bootstrap";
+import { Col, Form } from "react-bootstrap";
 import FormWapper from "./FormWapper";
 import Input from "./../base/Input";
 import SingleSelect from "./../base/SingleSelect";
@@ -67,6 +67,7 @@ export default function UserInfoFrom({
     <FormWapper title="اطلاعات فردی">
       <Col xs={12} md={6}>
         <Input
+          required={true}
           title="نام"
           value={firstName}
           onChangeValue={(e) => updateFields({ firstName: e.target.value })}

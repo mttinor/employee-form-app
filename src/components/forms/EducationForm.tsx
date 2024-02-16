@@ -26,6 +26,7 @@ export default function EducationForm({
     <FormWapper title="سوابق تحصیلی">
       <Col xs={12} md={6}>
         <Input
+          required={true}
           title="مقطع"
           value={grade}
           onChangeValue={(e) => updateFields({ grade: e.target.value })}
