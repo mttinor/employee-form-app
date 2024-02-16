@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
-
+console.log()
 const firebaseConfig = {
   apiKey: "AIzaSyC9eIhmokrKlLB_zL0mL-yReUKw0zqGpi4",
   authDomain: "employee-app-8a676.firebaseapp.com",
@@ -25,7 +25,7 @@ onMessage(messaging, (payload) => {
 console.log(messaging,'messaging');
 getToken(messaging, {
   vapidKey:
-    "BCCanYrZeS4Pa0z0EXmj-Y3jRyLgcpFgUi_mbnycWsiRkvIsxqKPbrhlTtRTQneoBRuPiFGFyGex96IMiVArJqs",
+    `${import.meta.env.VITE_APP_VAPID_KEY}`,
 })
   .then((currentToken) => {
     if (currentToken) {

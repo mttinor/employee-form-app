@@ -7,8 +7,6 @@ import "./firebase";
 import { useEffect } from "react";
 
 function App() {
-
-
   function requestPermission() {
     console.log("Requesting permission...");
     Notification.requestPermission().then((permission) => {

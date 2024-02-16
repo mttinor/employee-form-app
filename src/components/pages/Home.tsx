@@ -1,4 +1,4 @@
-import { useMultiStepForm } from "./../CustomHook/useMultiStepForm";
+import { useMultiStepForm } from "../CustomHooks/useMultiStepForm";
 import { Button } from "react-bootstrap";
 import EducationForm from "./../forms/EducationForm";
 import JobFrom from "./../forms/JobFrom";

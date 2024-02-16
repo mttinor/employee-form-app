@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Container, Table } from "react-bootstrap";
+import { Card, Col, Container, Row, Table } from "react-bootstrap";
 type FormData = {
   firstName: string;
   lastName: string;
@@ -68,33 +68,49 @@ export default function Admin() {
   }, []);
   return (
     <Container className="mt-4">
-      <Card>
-        <Card.Header>لیست افراد ثبت نامی</Card.Header>
-        <Card.Body>
-          <Table responsive striped bordered hover>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>نام</th>
-                <th>نام خانوادگی</th>
-                <th>سمت</th>
-                <th>مقطع</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((x, i) => (
-                <tr key={i}>
-                  <td>{i + 1}</td>
-                  <td>{x.firstName}</td>
-                  <td>{x.lastName}</td>
-                  <td>{x.position}</td>
-                  <td>{x.grade}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </Card.Body>
-      </Card>
+      <Row>
+        <Col className="d-block d-md-none" xs={12}>
+          <div
+            style={{
+              height: "100vh",
+              display: "flex",
+              justifyContent: "Center",
+              alignItems: "center",
+            }}
+          >
+            <h1> قسمت داشبور برای سایزهای دکستاپ طراحی شده است</h1>
+          </div>
+        </Col>
+        <Col className="d-none d-md-block" xs={12}>
+          <Card>
+            <Card.Header>لیست افراد ثبت نامی</Card.Header>
+            <Card.Body>
+              <Table responsive striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>نام</th>
+                    <th>نام خانوادگی</th>
+                    <th>سمت</th>
+                    <th>مقطع</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((x, i) => (
+                    <tr key={i}>
+                      <td>{i + 1}</td>
+                      <td>{x.firstName}</td>
+                      <td>{x.lastName}</td>
+                      <td>{x.position}</td>
+                      <td>{x.grade}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     </Container>
   );
 }
