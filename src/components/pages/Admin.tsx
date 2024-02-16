@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Card, Container, Table } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Card, Col, Container, Row, Table } from "react-bootstrap";
 type FormData = {
   firstName: string;
   lastName: string;
@@ -24,10 +24,7 @@ type FormData = {
   endPosition: string;
 };
 export default function Admin() {
-  const INIT_DATA: FormData[] = localStorage.getItem("userData")
-    ? JSON.parse(localStorage.getItem("userData"))
-    : [];
-  const [data, setData] = useState([
+  const [data, setData] = useState<FormData[]>([
     {
       endPosition: "1402/11/25",
       startPosition: "1402/11/1",
@@ -60,37 +57,60 @@ export default function Admin() {
       gradePoint: "20",
       timeLicence: "2",
     },
-    ...INIT_DATA,
   ]);
+
+  useEffect(() => {
+    const loc_storage: string | null = localStorage.getItem("userData");
+    const INIT_DATA: FormData[] = loc_storage
+      ? JSON.parse(`${loc_storage}`)
+      : [];
+    setData((prev) => [...prev, ...INIT_DATA]);
+  }, []);
   return (
     <Container className="mt-4">
-      <Card>
-        <Card.Header>لیست افراد ثبت نامی</Card.Header>
-        <Card.Body>
-          <Table responsive striped bordered hover>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>نام</th>
-                <th>نام خانوادگی</th>
-                <th>سمت</th>
-                <th>مقطع</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((x, i) => (
-                <tr key={i}>
-                  <td>{i + 1}</td>
-                  <td>{x.firstName}</td>
-                  <td>{x.lastName}</td>
-                  <td>{x.position}</td>
-                  <td>{x.grade}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </Card.Body>
-      </Card>
+      <Row>
+        <Col className="d-block d-md-none" xs={12}>
+          <div
+            style={{
+              height: "100vh",
+              display: "flex",
+              justifyContent: "Center",
+              alignItems: "center",
+            }}
+          >
+            <h1> قسمت داشبور برای سایزهای دکستاپ طراحی شده است</h1>
+          </div>
+        </Col>
+        <Col className="d-none d-md-block" xs={12}>
+          <Card>
+            <Card.Header>لیست افراد ثبت نامی</Card.Header>
+            <Card.Body>
+              <Table responsive striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>نام</th>
+                    <th>نام خانوادگی</th>
+                    <th>سمت</th>
+                    <th>مقطع</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((x, i) => (
+                    <tr key={i}>
+                      <td>{i + 1}</td>
+                      <td>{x.firstName}</td>
+                      <td>{x.lastName}</td>
+                      <td>{x.position}</td>
+                      <td>{x.grade}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     </Container>
   );
 }

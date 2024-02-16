@@ -1,11 +1,10 @@
-import { useMultiStepForm } from "./../CustomHook/useMultiStepForm";
+import { useMultiStepForm } from "../CustomHooks/useMultiStepForm";
 import { Button } from "react-bootstrap";
 import EducationForm from "./../forms/EducationForm";
 import JobFrom from "./../forms/JobFrom";
 import UserInfoFrom from "./../forms/UserInfoFrom";
 import CertificateForm from "./../forms/CertificateForm";
 import { FormEvent, useState } from "react";
-import { DateObject } from "react-multi-date-picker";
 
 type FormData = {
   firstName: string;
@@ -18,7 +17,7 @@ type FormData = {
   salary: string;
   companyName: string;
   position: string;
-  workTime: string;
+
   satisfactionCompany: string;
   licence: object[];
   grade: string;
@@ -48,7 +47,7 @@ const INITIAL_DATA: FormData = {
   salary: "",
   companyName: "",
   position: "",
-  workTime: "",
+
   satisfactionCompany: "",
   licence: [],
   grade: "",
@@ -86,13 +85,16 @@ function Home() {
         ...fields,
       };
     });
-    console.log(data);
   }
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!isLastStep) return next();
-    setItems((prev) => [...prev, data]);
+   
+
+    setItems((prev) => [...prev, { ...data }]);
+    console.log(items);
+     console.log(data);
     localStorage.setItem("userData", JSON.stringify(items));
     setFinished(
       ` ثبت نام شما با موفقیت اتجام شد کد پیگیری شما ${Math.floor(
@@ -106,6 +108,8 @@ function Home() {
     setData(INITIAL_DATA);
     setCountStepIndex(0);
   }
+
+ 
 
   return (
     <>

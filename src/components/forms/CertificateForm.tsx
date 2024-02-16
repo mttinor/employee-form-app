@@ -18,7 +18,7 @@ export default function CertificateForm({
   timeLicence,
   updateFields,
 }: CertificateFormProps) {
-  const [optionLicence, setOptionLicence] = useState([
+  const [optionLicence] = useState([
     { id: 1, name: "HTML" },
     { id: 2, name: "CSS" },
     { id: 3, name: "JAVASCRIPT" },
