@@ -75,6 +75,7 @@ export default function UserInfoFrom({
       </Col>
       <Col xs={12} md={6}>
         <Input
+          required={true}
           title="نام خانوادگی "
           value={lastName}
           onChangeValue={(e) => updateFields({ lastName: e.target.value })}
@@ -82,6 +83,7 @@ export default function UserInfoFrom({
       </Col>
       <Col xs={12} md={6}>
         <Input
+          required={true}
           title="نام پدر "
           value={fatherName}
           onChangeValue={(e) => updateFields({ fatherName: e.target.value })}
@@ -101,6 +103,7 @@ export default function UserInfoFrom({
       </Col>
       <Col xs={12} md={6}>
         <Input
+          required={true}
           title="محل تولد "
           value={placeBirth}
           onChangeValue={(e) => updateFields({ placeBirth: e.target.value })}

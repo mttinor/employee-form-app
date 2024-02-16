@@ -88,18 +88,20 @@ export default function Admin() {
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>نام</th>
-                    <th>نام خانوادگی</th>
+                    <th>نام و نام خانوادگی</th>
+                    <th>محل تولد</th>
+                    <th>نام پدر</th>
                     <th>سمت</th>
                     <th>مقطع</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((x, i) => (
+                  {data?.map((x, i) => (
                     <tr key={i}>
                       <td>{i + 1}</td>
-                      <td>{x.firstName}</td>
-                      <td>{x.lastName}</td>
+                      <td>{`${x.firstName} ${x.lastName}`}</td>
+                      <td>{x.placeBirth}</td>
+                      <td>{x.fatherName}</td>
                       <td>{x.position}</td>
                       <td>{x.grade}</td>
                     </tr>
