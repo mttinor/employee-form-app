@@ -61,7 +61,7 @@ export default function Admin() {
 
   useEffect(() => {
     const loc_storage: string | null = localStorage.getItem("userData");
-    const INIT_DATA: FormData[] = localStorage.getItem("userData")
+    const INIT_DATA: FormData[] = loc_storage
       ? JSON.parse(`${loc_storage}`)
       : [];
     setData((prev) => [...prev, ...INIT_DATA]);

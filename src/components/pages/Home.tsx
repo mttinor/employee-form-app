@@ -6,7 +6,6 @@ import UserInfoFrom from "./../forms/UserInfoFrom";
 import CertificateForm from "./../forms/CertificateForm";
 import { FormEvent, useState } from "react";
 
-
 type FormData = {
   firstName: string;
   lastName: string;
@@ -18,7 +17,7 @@ type FormData = {
   salary: string;
   companyName: string;
   position: string;
-  
+
   satisfactionCompany: string;
   licence: object[];
   grade: string;
@@ -91,7 +90,11 @@ function Home() {
   function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!isLastStep) return next();
-    setItems((prev) => [...prev, data]);
+   
+
+    setItems((prev) => [...prev, { ...data }]);
+    console.log(items);
+     console.log(data);
     localStorage.setItem("userData", JSON.stringify(items));
     setFinished(
       ` ثبت نام شما با موفقیت اتجام شد کد پیگیری شما ${Math.floor(
@@ -105,6 +108,8 @@ function Home() {
     setData(INITIAL_DATA);
     setCountStepIndex(0);
   }
+
+ 
 
   return (
     <>

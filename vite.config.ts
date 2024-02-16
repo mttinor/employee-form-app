@@ -3,6 +3,10 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 // https://vitejs.dev/config/
 export default defineConfig({
+  // server: {
+  //   port: 3001,
+  // },
+  envPrefix: "REACT_APP_",
   plugins: [
     react(),
     VitePWA({
@@ -34,6 +38,32 @@ export default defineConfig({
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",
+          },
+        ],
+      },
+      workbox: {
+        globPatterns: ["**/*.{js,ts,tsx,css,html,png,jpg}"],
+        runtimeCaching: [
+          {
+            urlPattern: /\.(?:js|css|html|json|xml|ts|tsx)$/,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "static-assets",
+            },
+          },
+          {
+            urlPattern: new RegExp("^http://localhost:5173/"),
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "api-cache",
+            },
+          },
+          {
+            urlPattern: new RegExp("^http://localhost:5173/"),
+            handler: "StaleWhileRevalidate",
+            options: {
+              cacheName: "cdn-cache",
+            },
           },
         ],
       },
