@@ -61,12 +61,9 @@ export default function Admin() {
 
   useEffect(() => {
     const loc_storage: string | null = localStorage.getItem("userData");
-    // const INIT_DATA: FormData[] = loc_storage
-    //   ? JSON.parse(`${loc_storage}`)
-    //   : [];
-    console.log(JSON.parse(`${loc_storage}`));
-
-    setData((prev) => [...prev, ...JSON.parse(`${loc_storage}`)]);
+    if (loc_storage && JSON.parse(`${loc_storage}`).length > 0) {
+      setData((prev) => [...prev, ...JSON.parse(`${loc_storage}`)]);
+    }
   }, []);
   return (
     <Container className="mt-4">
@@ -85,10 +82,7 @@ export default function Admin() {
         </Col>
         <Col className="d-none d-md-block" xs={12}>
           <Card>
-            <Card.Header>
-              لیست افراد ثبت نامی
-              ({data?.length})
-            </Card.Header>
+            <Card.Header>لیست افراد ثبت نامی ({data?.length})</Card.Header>
             <Card.Body>
               <Table responsive striped bordered hover>
                 <thead>

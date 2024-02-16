@@ -122,6 +122,8 @@ function Home() {
     setCountStepIndex(0);
   }
 
+  
+
   return (
     <>
       <div className="d-none d-md-block">

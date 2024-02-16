@@ -5,7 +5,6 @@ interface InputType {
   type?: HTMLInputTypeAttribute;
   title?: string;
   required?: boolean;
-  errorMessage?: string;
   value?: number | string;
   onChangeValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -16,7 +15,6 @@ const Input: React.FC<InputType> = ({
   type,
   required,
 
-  errorMessage,
   onChangeValue,
 }: InputType) => (
   <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -27,9 +25,12 @@ const Input: React.FC<InputType> = ({
       value={value}
       type={type}
     />
-    {errorMessage && (
+    <Form.Control.Feedback type="invalid">
+      {`لطفا فیلد ${title} را پر کنید`}
+    </Form.Control.Feedback>
+    {/* {errorMessage && (
       <Form.Text className="text-muted">{errorMessage}</Form.Text>
-    )}
+    )} */}
   </Form.Group>
 );
 
