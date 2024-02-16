@@ -49,6 +49,7 @@ export default function CertificateForm({
       </Col>
       <Col xs={12} md={6}>
         <Input
+          type="number"
           title="مدت زمان گذراندن دوره ها"
           value={timeLicence}
           onChangeValue={(e) => updateFields({ timeLicence: e.target.value })}

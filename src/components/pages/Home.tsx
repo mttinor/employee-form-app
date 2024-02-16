@@ -9,7 +9,7 @@ import { FormEvent, useState } from "react";
 type FormData = {
   firstName: string;
   lastName: string;
-  nationalCode: number ;
+  nationalCode: string;
   placeBirth: string;
   dateBirth: string;
   fatherName: string;
@@ -40,7 +40,7 @@ const INITIAL_DATA: FormData = {
   firstName: "",
   lastName: "",
   maritalStatus: "",
-  nationalCode: 0,
+  nationalCode: "",
   placeBirth: "",
   dateBirth: "",
   fatherName: "",
@@ -90,11 +90,10 @@ function Home() {
   function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!isLastStep) return next();
-   
 
     setItems((prev) => [...prev, { ...data }]);
     console.log(items);
-     console.log(data);
+    console.log(data);
     localStorage.setItem("userData", JSON.stringify(items));
     setFinished(
       ` ثبت نام شما با موفقیت اتجام شد کد پیگیری شما ${Math.floor(
@@ -108,8 +107,6 @@ function Home() {
     setData(INITIAL_DATA);
     setCountStepIndex(0);
   }
-
- 
 
   return (
     <>

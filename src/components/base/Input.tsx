@@ -19,9 +19,8 @@ const Input: React.FC<InputType> = ({
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>{title}:</Form.Label>
     <Form.Control
-      required
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChangeValue(e)}
-      value={value || ""}
+      value={value}
       type={type}
     />
     {errorMessage && (

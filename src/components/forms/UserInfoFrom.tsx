@@ -9,7 +9,7 @@ type UserFormData = {
   maritalStatus: string;
   firstName: string;
   lastName: string;
-  nationalCode: number;
+  nationalCode: string;
   placeBirth: string;
   dateBirth: string;
   fatherName: string;
