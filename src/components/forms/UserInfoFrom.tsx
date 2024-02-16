@@ -3,14 +3,13 @@ import FormWapper from "./FormWapper";
 import Input from "./../base/Input";
 import SingleSelect from "./../base/SingleSelect";
 import Calender from "./../base/Calender";
-import { DateObject } from "react-multi-date-picker";
 import { useState } from "react";
 
 type UserFormData = {
   maritalStatus: string;
   firstName: string;
   lastName: string;
-  nationalCode: string;
+  nationalCode: number;
   placeBirth: string;
   dateBirth: string;
   fatherName: string;
@@ -108,6 +107,7 @@ export default function UserInfoFrom({
       </Col>
       <Col xs={12} md={6}>
         <Input
+          type="number"
           title="کد ملی "
           value={nationalCode}
           onChangeValue={(e) => updateFields({ nationalCode: e.target.value })}

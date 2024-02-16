@@ -10,7 +10,7 @@ import { DateObject } from "react-multi-date-picker";
 type FormData = {
   firstName: string;
   lastName: string;
-  nationalCode: string;
+  nationalCode: number ;
   placeBirth: string;
   dateBirth: string;
   fatherName: string;
@@ -41,7 +41,7 @@ const INITIAL_DATA: FormData = {
   firstName: "",
   lastName: "",
   maritalStatus: "",
-  nationalCode: "",
+  nationalCode: 0,
   placeBirth: "",
   dateBirth: "",
   fatherName: "",
