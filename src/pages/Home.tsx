@@ -1,10 +1,10 @@
-import { useMultiStepForm } from "../CustomHooks/useMultiStepForm";
+import { useMultiStepForm } from "../components/CustomHooks/useMultiStepForm";
 import { Button, Form } from "react-bootstrap";
-import EducationForm from "./../forms/EducationForm";
-import JobFrom from "./../forms/JobFrom";
-import UserInfoFrom from "./../forms/UserInfoFrom";
-import CertificateForm from "./../forms/CertificateForm";
-import { FormEvent, useState } from "react";
+import EducationForm from "../components/forms/EducationForm";
+import JobFrom from "../components/forms/JobFrom";
+import UserInfoFrom from "../components/forms/UserInfoFrom";
+import CertificateForm from "../components/forms/CertificateForm";
+import { useState } from "react";
 
 type FormData = {
   firstName: string;
@@ -92,22 +92,16 @@ function Home() {
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      console.log(1);
-
       event.stopPropagation();
       setValidated(true);
       return;
     }
-
-    // e.preventDefault();
     if (!isLastStep) {
       next();
       setValidated(false);
       return;
     }
-
     setItems((prev) => [...prev, { ...data }]);
-
     localStorage.setItem("userData", JSON.stringify([...items, { ...data }]));
     setFinished(
       ` ثبت نام شما با موفقیت اتجام شد کد پیگیری شما ${Math.floor(
@@ -121,8 +115,6 @@ function Home() {
     setData(INITIAL_DATA);
     setCountStepIndex(0);
   }
-
-  
 
   return (
     <>

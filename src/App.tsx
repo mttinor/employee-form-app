@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/pages/Home";
-import Admin from "./components/pages/Admin";
-import NoPage from "./components/pages/NoPage";
+import Home from "./pages/Home";
+import Admin from "./pages/Admin";
+import NoPage from "./pages/NoPage";
 import "./firebase";
 import { useEffect } from "react";
 
