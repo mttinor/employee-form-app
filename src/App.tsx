@@ -12,8 +12,10 @@ function App() {
     Notification.requestPermission().then((permission) => {
       if (permission === "granted") {
         console.log("Notification permission granted...");
+        new Notification("به سایت خود خوش امدید");
       } else {
         console.log("Do not have permissions");
+        alert("لطفا برای دریافت اخرین اخبار  نوتیفیکشن را فعال کنید ");
       }
     });
   }
