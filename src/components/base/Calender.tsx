@@ -26,7 +26,7 @@ export default function Calender({
         minDate={minDate}
         maxDate={maxDate}
         value={value}
-        onChange={(e: DateObject | DateObject[] | null) => onChangeValue(e)}
+        onChange={(e) => onChangeValue(e)}
         calendar={persian}
         locale={persian_fa}
       />

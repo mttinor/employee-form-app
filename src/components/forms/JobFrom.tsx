@@ -67,6 +67,7 @@ export default function JobFrom({
           value={endPosition}
           maxDate={new Date()}
           title="تا تاریخ"
+        
           onChangeValue={(e: any) =>
             updateFields({
               endPosition: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
