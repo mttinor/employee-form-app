@@ -46,21 +46,7 @@ export default defineConfig({
             options: {
               cacheName: "static-assets",
             },
-          },
-          {
-            urlPattern: new RegExp("^http://localhost:5173/"),
-            handler: "NetworkFirst",
-            options: {
-              cacheName: "api-cache",
-            },
-          },
-          {
-            urlPattern: new RegExp("^http://localhost:5173/"),
-            handler: "StaleWhileRevalidate",
-            options: {
-              cacheName: "cdn-cache",
-            },
-          },
+          }
         ],
       },
     }),

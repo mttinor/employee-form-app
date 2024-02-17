@@ -4,6 +4,7 @@ import Input from "./../base/Input";
 import SingleSelect from "./../base/SingleSelect";
 import Calender from "./../base/Calender";
 import { useState } from "react";
+import { checkNationalCode } from "./../../utils/Validations";
 
 type UserFormData = {
   maritalStatus: string;
@@ -113,6 +114,14 @@ export default function UserInfoFrom({
         <Input
           type="number"
           title="کد ملی "
+          isInvalid={
+            checkNationalCode(nationalCode)
+              ? false
+              : nationalCode.length > 0
+              ? true
+              : false
+          }
+          required={true}
           value={nationalCode}
           onChangeValue={(e) => updateFields({ nationalCode: e.target.value })}
         />
