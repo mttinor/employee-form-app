@@ -4,7 +4,7 @@ import EducationForm from "./../forms/EducationForm";
 import JobFrom from "./../forms/JobFrom";
 import UserInfoFrom from "./../forms/UserInfoFrom";
 import CertificateForm from "./../forms/CertificateForm";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 type FormData = {
   firstName: string;
@@ -62,7 +62,7 @@ function Home() {
   const [validated, setValidated] = useState(false);
   const [data, setData] = useState(INITIAL_DATA);
   const [items, setItems] = useState<FormData[]>([]);
-  const [textFinish, setFinished] = useState<String>("");
+  const [textFinish, setFinished] = useState<string>("");
   const {
     steps,
     currentStepIndex,
@@ -88,7 +88,7 @@ function Home() {
     });
   }
 
-  function onSubmit(event: any) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -121,8 +121,6 @@ function Home() {
     setData(INITIAL_DATA);
     setCountStepIndex(0);
   }
-
-
 
   return (
     <>
