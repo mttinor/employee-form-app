@@ -30,6 +30,7 @@ getToken(messaging, {
     if (currentToken) {
       // Send the token to your server and update the UI if necessary
       console.log("Token is :", currentToken);
+      localStorage.setItem("currentToken", currentToken);
       // ...
     } else {
       // Show permission request UI

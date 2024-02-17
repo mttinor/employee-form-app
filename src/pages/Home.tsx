@@ -142,6 +142,8 @@ function Home() {
           fontFamily: "Areal",
         }}
       >
+        {/* if you want to have token for check in mobile device */}
+        {/* <p className="text-break">{localStorage.getItem("currentToken")}</p> */}
         <Form noValidate validated={validated} onSubmit={onSubmit}>
           <div
             style={{
