@@ -4,7 +4,7 @@ import EducationForm from "./../forms/EducationForm";
 import JobFrom from "./../forms/JobFrom";
 import UserInfoFrom from "./../forms/UserInfoFrom";
 import CertificateForm from "./../forms/CertificateForm";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 
 type FormData = {
   firstName: string;
@@ -122,7 +122,7 @@ function Home() {
     setCountStepIndex(0);
   }
 
-  
+
 
   return (
     <>
