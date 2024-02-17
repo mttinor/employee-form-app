@@ -4,7 +4,7 @@ import EducationForm from "../components/forms/EducationForm";
 import JobFrom from "../components/forms/JobFrom";
 import UserInfoFrom from "../components/forms/UserInfoFrom";
 import CertificateForm from "../components/forms/CertificateForm";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 type FormData = {
   firstName: string;
