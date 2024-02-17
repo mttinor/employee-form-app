@@ -140,10 +140,8 @@ function Home() {
           margin: "1rem",
           borderRadius: "0.5rem",
           fontFamily: "Areal",
-          // maxWidth: "max-content",
         }}
       >
-        {/* <form onSubmit={onSubmit}> */}
         <Form noValidate validated={validated} onSubmit={onSubmit}>
           <div
             style={{

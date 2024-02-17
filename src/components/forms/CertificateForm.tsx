@@ -25,13 +25,11 @@ export default function CertificateForm({
     { id: 4, name: "REACT" },
     { id: 5, name: "VUE" },
   ]);
-  function onSelect(selectedList: object[], selectedItem: object) {
-    console.log(selectedList, selectedItem, "onSelect");
+  function onSelect(selectedList: object[]) {
     updateFields({ licence: selectedList });
   }
 
-  function onRemove(selectedList: object[], removedItem: object) {
-    console.log(selectedList, removedItem, "onRemove");
+  function onRemove(selectedList: object[]) {
     updateFields({ licence: selectedList });
   }
   return (
