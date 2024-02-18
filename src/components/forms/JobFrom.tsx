@@ -4,6 +4,7 @@ import { useState } from "react";
 import Input from "./../base/Input";
 import SingleSelect from "./../base/SingleSelect";
 import Calender from "../base/Calender";
+import { DateObject } from "react-multi-date-picker";
 
 type JobFormData = {
   salary: string;
@@ -55,9 +56,9 @@ export default function JobFrom({
           value={startPosition}
           maxDate={new Date()}
           title="از تاریخ"
-          onChangeValue={(e: any) =>
+          onChangeValue={(e: DateObject | DateObject[] | null) =>
             updateFields({
-              startPosition: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
+              startPosition: e?.toDate?.().toString(),
             })
           }
         />
@@ -67,10 +68,9 @@ export default function JobFrom({
           value={endPosition}
           maxDate={new Date()}
           title="تا تاریخ"
-        
-          onChangeValue={(e: any) =>
+          onChangeValue={(e: DateObject | DateObject[] | null) =>
             updateFields({
-              endPosition: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
+              endPosition: e?.toDate?.().toString(),
             })
           }
         />

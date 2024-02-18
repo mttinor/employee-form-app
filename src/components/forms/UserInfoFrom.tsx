@@ -5,6 +5,7 @@ import SingleSelect from "./../base/SingleSelect";
 import Calender from "./../base/Calender";
 import { useRef } from "react";
 import { checkNationalCode } from "./../../utils/Validations";
+import { DateObject } from "react-multi-date-picker";
 
 type UserFormData = {
   maritalStatus: string;
@@ -94,9 +95,9 @@ export default function UserInfoFrom({
           title="تاریخ تولد "
           value={dateBirth}
           maxDate={new Date()}
-          onChangeValue={(e: any) =>
+          onChangeValue={(e: DateObject | DateObject[] | null) =>
             updateFields({
-              dateBirth: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
+              dateBirth: e?.toDate?.().toString(),
             })
           }
         />

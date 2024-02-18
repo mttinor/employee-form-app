@@ -30,6 +30,7 @@ export default function Calender({
         calendar={persian}
         locale={persian_fa}
       />
+      
     </>
   );
 }
