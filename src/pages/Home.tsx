@@ -104,7 +104,7 @@ function Home() {
     setItems((prev) => [...prev, { ...data }]);
     localStorage.setItem("userData", JSON.stringify([...items, { ...data }]));
     setFinished(
-      ` ثبت نام شما با موفقیت اتجام شد کد پیگیری شما ${Math.floor(
+      ` ثبت نام شما با موفقیت انجام شد کد پیگیری شما ${Math.floor(
         Math.random() * 25659
       )}`
     );

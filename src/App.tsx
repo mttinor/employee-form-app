@@ -15,7 +15,7 @@ function App() {
         if (navigator.userAgent.match(/Android/i)) {
           toast("سلام خوش حالم که با گوشی وارد سایت ما شدی ");
         } else {
-          toast("سلام خوش حالم که ار آخرین اخبار   سایت ما با خبر میشی ");
+          toast("سلام خوش حالم که از آخرین اخبار   سایت ما با خبر میشی ");
         }
       } else {
         console.log("Do not have permissions");
