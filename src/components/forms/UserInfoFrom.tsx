@@ -95,9 +95,9 @@ export default function UserInfoFrom({
           title="تاریخ تولد "
           value={dateBirth}
           maxDate={new Date()}
-          onChangeValue={(e: DateObject | DateObject[] | null) =>
+          onChangeValue={(e: any) =>
             updateFields({
-              dateBirth: e?.toDate?.().toString(),
+              dateBirth: `${e?.year}/${e?.monthIndex + 1}/${e?.day}`,
             })
           }
         />

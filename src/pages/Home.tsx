@@ -11,13 +11,12 @@ type FormData = {
   lastName: string;
   nationalCode: string;
   placeBirth: string;
-  dateBirth: string;
+  dateBirth: string | undefined;
   fatherName: string;
   maritalStatus: string;
   salary: string;
   companyName: string;
   position: string;
-
   satisfactionCompany: string;
   licence: object[];
   grade: string;
