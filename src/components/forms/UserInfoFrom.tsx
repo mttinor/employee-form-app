@@ -3,7 +3,7 @@ import FormWapper from "./FormWapper";
 import Input from "./../base/Input";
 import SingleSelect from "./../base/SingleSelect";
 import Calender from "./../base/Calender";
-import { useState } from "react";
+import { useRef } from "react";
 import { checkNationalCode } from "./../../utils/Validations";
 
 type UserFormData = {
@@ -34,7 +34,7 @@ export default function UserInfoFrom({
   fatherName,
   updateFields,
 }: UserFormProps) {
-  const [maritalStatusOptions] = useState([
+  const maritalStatusOptions = useRef([
     {
       name: "متاهل",
       value: "1",
@@ -48,7 +48,7 @@ export default function UserInfoFrom({
       value: "3",
     },
   ]);
-  const [genderOptions] = useState([
+  const genderOptions = useRef([
     {
       name: "مرد",
       value: "1",
@@ -63,7 +63,6 @@ export default function UserInfoFrom({
     },
   ]);
 
-  [{ name: "مذکز", value: "1" }];
   return (
     <FormWapper title="اطلاعات فردی">
       <Col xs={12} md={6}>
@@ -129,7 +128,7 @@ export default function UserInfoFrom({
       <Col xs={12} md={6}>
         <SingleSelect
           value={maritalStatus}
-          options={maritalStatusOptions}
+          options={maritalStatusOptions.current}
           onChangeValue={(e) => updateFields({ maritalStatus: e.target.value })}
           title="وضعیت تاهل"
         />
@@ -137,7 +136,7 @@ export default function UserInfoFrom({
       <Col xs={12} md={6}>
         <SingleSelect
           value={gender}
-          options={genderOptions}
+          options={genderOptions.current}
           onChangeValue={(e) => updateFields({ gender: e.target.value })}
           title="جنسیت"
         />

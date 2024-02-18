@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { Row } from "react-bootstrap";
 
 interface FormWapperProps {
-  title: String;
+  title: string;
   children: ReactNode;
 }
 
@@ -18,10 +18,7 @@ export default function FormWapper({ title, children }: FormWapperProps) {
       >
         {title}
       </h2>
-      <Row
-      >
-        {children}
-      </Row>
+      <Row>{children}</Row>
     </>
   );
 }

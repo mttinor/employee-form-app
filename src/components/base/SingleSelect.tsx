@@ -4,13 +4,13 @@ interface OptionType {
   name: string;
   value: string;
 }
-interface SingleSelectType {
+type SingleSelectType = {
   value: string;
-  title: String;
+  title: string;
   options?: OptionType[];
-  errorMassage?: String;
+  errorMassage?: string;
   onChangeValue: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-}
+};
 
 const SingleSelect = ({
   title,
