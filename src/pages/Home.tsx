@@ -11,7 +11,7 @@ type FormData = {
   lastName: string;
   nationalCode: string;
   placeBirth: string;
-  dateBirth: string | undefined;
+  dateBirth: string;
   fatherName: string;
   maritalStatus: string;
   salary: string;

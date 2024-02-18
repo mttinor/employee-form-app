@@ -5,7 +5,7 @@ import SingleSelect from "./../base/SingleSelect";
 import Calender from "./../base/Calender";
 import { useRef } from "react";
 import { checkNationalCode } from "./../../utils/Validations";
-import { DateObject } from "react-multi-date-picker";
+
 
 type UserFormData = {
   maritalStatus: string;

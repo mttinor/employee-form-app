@@ -4,7 +4,7 @@ import { useState } from "react";
 import Input from "./../base/Input";
 import SingleSelect from "./../base/SingleSelect";
 import Calender from "../base/Calender";
-import { DateObject, Value } from "react-multi-date-picker";
+
 
 type JobFormData = {
   salary: string;
