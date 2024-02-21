@@ -49,17 +49,17 @@ interface MessageProps {
   HubConnecttion:signalR.HubConnection
 }
 const Messages :React.FC<MessageProps> = (messageProps)=>{
-  const [itemDate,setItemDate] = useState<Date>();
+  const [itemDate,setItemDate] = useState<string>();
 
   useEffect(()=>{
     messageProps.HubConnecttion.on("send",message =>{
       console.log(message,"message on send");
-      setItemDate(new Date())
+      setItemDate(`${new Date()}`)
     })
   },[])
 
   return (<>
-    <h1>test my connection</h1>
+    <h1>test my connection {itemDate}</h1>
   </>)
 }
 // ======================================
@@ -104,7 +104,11 @@ const SendMessage :React.FC = ()=>{
 
 const App:React.FC = ()=>{
   const hubConnection = new signalR.HubConnectionBuilder().withUrl("http://172.24.0.38:8910/notifications").build()
-  hubConnection.start()
+  hubConnection.start().then(() => {
+    const connectionId = hubConnection.connectionId;
+    console.log('Connected to SignalR hub. Connection ID:',connectionId,JSON.stringify(hubConnection));
+  })
+  .catch(error => console.error(error));
   return (<>
   <SendMessage/>
    <Messages HubConnecttion={hubConnection}/>
