@@ -9,6 +9,7 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
       manifest: {
+        start_url: '/',
         name: "PWA",
         short_name: "PWA",
         theme_color: "#ffffff",
