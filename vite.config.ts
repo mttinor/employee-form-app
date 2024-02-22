@@ -3,9 +3,14 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    origin: 'http://172.24.0.38:3000',
+  },
   plugins: [
+    
     react(),
     VitePWA({
+      
       registerType: "autoUpdate",
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
       manifest: {

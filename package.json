@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "generate-pwa-assets": "pwa-assets-generator --preset minimal public/logo.svg",
-    "start": "npm run build && npm run preview"
+    "start": "npm run build && npm run preview -- --host"
   },
   "dependencies": {
     "@microsoft/signalr": "^8.0.0",
