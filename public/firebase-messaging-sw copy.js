@@ -35,6 +35,11 @@
 // });
 
 console.log("mehdi backgound");
-self.registration.showNotification("Wake Time !!!", {
-  body: `Hi, Good Morning`,
-});
+self.addEventListener("fetch", fetchEvent => {
+  // console.log(11);
+  // fetchEvent.respondWith(
+  //   caches.match(fetchEvent.request).then(res => {
+  //     return res || fetch(fetchEvent.request)
+  //   })
+  // )
+})
