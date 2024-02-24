@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 // Initialize web-push with your VAPID keys
 const publicKey = 'BGvRzo8nMXyVmATOyEwKF_JuqLDuih-CtO21rNQIajRIUsoEcDc6bI8MPCWbzfj0xWRy2dplyAQ8PkrAieYIZ90';
 const privateKey = 'q8R0oe8Nx7L8fDwQ_wV-GPH5iGXIR_AcHOWqvKvq6PY';
-webPush.setVapidDetails('http://localhost:5173/', publicKey, privateKey);
+webPush.setVapidDetails('https://pakhshmart.com', publicKey, privateKey);
 
 // Store subscriptions
 const subscriptions = [];
